@@ -1,0 +1,82 @@
+$def with (task)
+$code:
+  #
+  # Build toolbar
+  #
+  toolbar_lines = []
+  toolbar_lines.append(u'<table>')
+  toolbar_lines.append(u'<td class="left" id="user">{user}</td>'.format(user=task.user))
+  toolbar_lines.append(u'<td class="center">{task} ({i} sentences)</td>'.format(task=task.name, i=len(task.left)))
+  toolbar_lines.append(u'<td class="right"><button id="pause">Pause</button><button id="submit">Submit</button><button id="help">?</button></td>')
+  toolbar_lines.append(u'</table>')
+  # realtime or realtime-static
+  toolbar_lines.append(u'<input id="task" type="hidden" value="{t}"/>'.format(t=task.task))
+  toolbar_html = '\n'.join(toolbar_lines)
+  #
+  # Build translation editor pane
+  #
+  editor_lines = []
+  editor_lines.append(u'<tr><td></td><td class="colheader">{left_title}</td>'.format(left_title=task.left_title))
+  editor_lines.append(u'<td class="colheader">{right_title}</td>'.format(right_title=task.right_title))
+  editor_lines.append(u'<td class="colheader">Rating</td></tr>')
+  for i in range(len(task.left)):
+    idx = i + 1
+    line = []
+    line.append(u'<tr class="thin" name="{idx}">'.format(idx=idx))
+    line.append(u'<td class="linecell" name="{idx}">{idx}</td>'.format(idx=idx))
+    line.append(u'<td class="thin"><textarea readonly="readonly" class="src" name="{idx}">{src}</textarea></td>'.format(idx=idx, src=task.left[i]))
+    edited = (task.user_trans[i] != -1)
+    disabled = u' disabled' if not edited else u''
+    line.append(u'<td class="thin"><textarea class="hyp" name="{idx}"{disabled}>{trans}</textarea></td>'.format(idx=idx,
+                                                                                                                trans=task.user_trans[i] if edited else '',
+                                                                                                                disabled=disabled))
+    line.append(u'<td class="ratingcell" name="{idx}">'.format(idx=idx))
+    line.append(u'<select class="rating" name="{idx}"{disabled}>'.format(idx=idx, disabled=disabled))
+    for r, desc in task.ratings:
+      line.append(u'<option id="{r}" value="{r}" {selected}>{desc}</option>'.format(r=r, desc=desc, selected=u'selected="selected"' if r == task.user_ratings[i] else u''))
+    line.append(u'</select>')
+    line.append(u'</td>')
+    line.append(u'</tr>')
+    editor_lines.append(u''.join(line))
+  editor_html = u'\n'.join(editor_lines)
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Translation Editor</title>
+    <link rel="stylesheet" type="text/css" href="static/editor.css" />
+    <script type="text/javascript" src="static/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="static/editor.js"></script>
+  </head>
+
+  <body>
+    <div id="darkback"></div>
+    <div id="pauseback">
+      <div id="pausewin">
+        <center>
+          Editing Paused<br>
+          <button id="resume">Resume</button>
+        </center>
+      </div>
+    </div>
+    <div id="splashback">
+      <div id="splashwin">
+        <center>
+          <div id="startmsg"></div><br>
+          <button id="start"></button>
+        </center>
+      </div>
+    </div>
+    <div id="page">
+      <div id="toolbar">
+        $:toolbar_html
+      </div>
+      <div id="editorpane">
+        <table id="editortable">
+          $:editor_html
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

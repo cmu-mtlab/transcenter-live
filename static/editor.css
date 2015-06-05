@@ -1,0 +1,158 @@
+body {
+   background: #c0c0c0;
+}
+
+.thin {
+  border: 1px solid #a0a0a0;
+  border-collapse: collapse;
+  font-size: 0;
+  padding: 0;
+}
+
+#darkback {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  opacity: 0.8;
+  z-index: 1000000;
+  visibility: hidden;
+}
+
+#pauseback {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  padding-top: 200px;
+  z-index: 1000005;
+  visibility: hidden;
+}
+
+#pausewin {
+  position: relative;
+  margin: auto;
+  padding: 12px;
+  line-height: 32px;
+  width: 300px;
+  color: #000000;
+  background: #eeeeee;
+  font-family: sans-serif;
+  font-size: medium;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+}
+
+#splashback {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  padding-top: 200px;
+  z-index: 1000004;
+  visibility: hidden;
+}
+
+#splashwin {
+  position: relative;
+  margin: auto;
+  padding: 12px;
+  line-height: 32px;
+  width: 300px;
+  color: #000000;
+  background: #eeeeee;
+  font-family: sans-serif;
+  font-size: medium;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+}
+
+#toolbar {
+  position: fixed;
+  top: 0;
+  width: 794px;
+  height: 32px;
+  color: #ffffff;
+  background: #8888ff;
+  font-family: sans-serif;
+  font-size: medium;
+  border: 1px solid #a0a0a0;
+}
+
+#page {
+  width: 796px;
+  margin-top: 32px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  background: #ffffff;
+  box-shadow: 0 0 8px 5px rgba(0,0,0,0.2);
+}
+
+#editorpane {
+  color: #000000;
+  background: #ffffff;
+}
+
+#editortable {
+  border-collapse: collapse;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: medium;
+  border: 1px solid #a0a0a0;
+}
+
+.colheader {
+  height: 32px;
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+  width: 494px;
+}
+
+.left {
+  text-align: left;
+  width: 200px;
+}
+
+.right {
+  text-align: right;
+  width: 200px;
+}
+
+.src, .hyp {
+  font-family: sans-serif;
+  font-size: medium;
+  resize: none;
+  height: 0px;
+  width: 300px;
+  border-width: 0;
+  overflow: hidden;
+  padding: 4px;
+}
+
+.linecell {
+  font-family: sans-serif;
+  font-size: medium;
+  /* 1px to sum to even number */
+  padding-left: 1px;
+  padding-right: 8px;
+  vertical-align: top;
+  text-align: right;
+  width: 38px;
+}
+
+.ratingcell {
+  font-family: sans-serif;
+  font-size: medium;
+  padding: 2px;
+  vertical-align: top;
+  text-align: center;
+  width: 130px;
+}

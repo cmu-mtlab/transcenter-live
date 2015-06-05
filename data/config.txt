@@ -1,0 +1,4 @@
+title: CMU-Kent Translation Project
+from_email: transcenter@transcenter
+admin_email: transcenter@transcenter
+admin_password: admin123

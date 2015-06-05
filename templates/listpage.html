@@ -1,0 +1,54 @@
+$def with (user, tasks, status)
+$code:
+  # List active tasks
+  task_lines = []
+  i = 0
+  for (dir, name, task) in tasks:
+    i += 1
+    task_lines.append(u'<tr>')
+    task_lines.append(u'<td><form id="{i}" action="/editor" method="post">'.format(i=i))
+    task_lines.append(u'<a class="task" name="{i}" href="#">{name}</a>'.format(i=i, name=name))
+    task_lines.append(u'<input name="taskdir" type="hidden" value="{dir}"/>'.format(dir=dir))
+    task_lines.append(u'</form></td><td />')
+    task_lines.append(u'<td>{task}</td><td />'.format(task=task))
+    st = status[dir] if dir in status else u''
+    task_lines.append(u'<td>{status}</td>'.format(status=st))
+    task_lines.append(u'</tr>')
+  task_html = u'\n'.join(task_lines)
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>TransCenter</title>
+    <link rel="stylesheet" type="text/css" href="static/listpage.css" />
+    <script type="text/javascript" src="static/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="static/listpage.js"></script>
+  </head>
+
+  <body>
+    <div id="page">
+      <div id="toolbar">
+        <table>
+          <td class="left" id="user">$user</td>
+          <td class="center">
+          <td class="right">
+            <form id="flogout" action="/logout" method="get">
+              <input type="submit" id="logout" value="Logout"/>
+            </form>
+          </td>
+        </table>
+      </div>
+      <div id="title">
+        Active Translation Tasks
+      </div>
+      <div class="msg">Please read the instructions on the <a href="/help" target="_blank">help page</a> before starting a task.</div>
+      <div id="listpane">
+        <table id="listtable">
+          <tr class="header"><td>Translation Task</td><td class="hspace"/><td>Type</td><td class="hspace"/><td>Status</td></tr>
+          $:task_html
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+$def with (trans)
+$code:
+  table_lines = []
+  #
+  # Each sent
+  #
+  i = 0
+  for sent_edits in trans:
+    i += 1
+    table_lines.append(u'<table>')
+    #
+    # Header
+    #
+    table_lines.append(u'<tr class="header"><td>Time</td><td>Sentence {i} Edits</td></tr>'.format(i=i))
+    #
+    # Each line
+    #
+    ec = 0
+    for edit in sent_edits:
+      ec += 1
+      table_lines.append(u'<tr class="row{n}"><td>{time}</td><td>{left}<span class="{opclass}">{diff}</span>{right}</td></tr>'.format(n=ec % 2, time=edit[5], left=edit[0], opclass=edit[4], diff=edit[1], right=edit[2]))
+    table_lines.append(u'</table><br />')
+  table_html = u'\n'.join(table_lines)
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Task Report</title>
+    <style media="all" type="text/css">
+      body {
+        font-family: sans-serif;
+        color: #000000;
+        background: #242323;
+      }
+      #page {
+        width: 90%;
+        margin: auto;
+      }
+      table {margin: auto}
+      table, tr, td {
+        padding-left: 5px;
+        padding-right: 5px;
+        border: 1px solid #a0a0a0;
+        border-collapse: collapse;
+        vertical-align: text-top;
+      }
+      .header {
+        text-align: center;
+        color: #ffffff;
+        background: #726969;
+      }
+      .row0 {background: #eeeeee}
+      .row1 {background: #ffffff}
+      .ins {background: #aaffaa}
+      .del {background: #ffaaaa}
+    </style>
+  </head>
+
+  <body>
+    <div id="page">
+      $:table_html
+    </div>
+  </body>
+</html>

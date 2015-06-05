@@ -1,0 +1,76 @@
+$def with (title)
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>TransCenter Admin</title>
+    <link rel="stylesheet" type="text/css" href="static/admin.css" />
+    <script type="text/javascript" src="static/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="static/admin.js"></script>
+  </head>
+
+  <body>
+    <div id="page">
+      <br />
+      <div id="title">
+        $title
+      </div>
+      <div id="subtitle">
+        Powered by TransCenter
+      </div>
+      <div id="loginpane">
+        <br />
+        <table class="invis">
+          <td><a href="#" id="alogin">Login</a></td><td class="hspace" /><td class="hspace" /><td><a href="#" id="aregister">Register</a></td><td class="hspace" /><td class="hspace" /><td name="arecover"><a href="#" id="arecover">Recover Account</a></td><td class="hspace" /><td class="hspace" /><td><a href="#" id="aadmin">Admin Login</a></td><td class="hspace" /><td class="hspace" /><td><a href="help" target="_blank" id="ahelp">Help</a></td>
+        </table>
+        <div id="login">
+          <form id="flogin" action="/login" method="post">
+            <table class="c">
+              <td>User ID:</td><td><input type="text" class="input" name="uid" /></td><td class="hspace"/><td>Password:</td><td><input type="password" class="input" name="pass" /></td><td class="hspace"/><td><input type="submit" value="Login" id="logbutton"/></td></tr>
+            </table>
+          </form>
+        </div>
+        <div id="register">
+          <form id="fregister" action="/register" method="post">
+          <table class="c">
+            <tr>
+              <td>User ID:</td><td><input type="text" class="input" name="newuid" /></td>
+              <td class="hspace"/>
+              <td>Password:</td><td><input type="password" class="input" name="newpass" /></td>
+              <td class="hspace"/>
+              <td>Email:</td><td><input type="text" class="input" name="newemail" /></td>
+            </tr>
+            <tr>
+              <td>Group Code:</td><td><input type="password" class="input" name="newgroup" /></td>
+              <td />
+              <td>Password (confirm):</td><td><input type="password" class="input" name="newpasstwo" /></td>
+              <td />
+              <td /><td class="r"><input type="submit" value="Register" id="newbutton"/></td>
+            </tr>
+          </table>
+          </form>
+          <div class="c s">Note: if you recover your password, it will be emailed to you in plain text.  Do not use an important password.</div>
+        </div>
+        <div id="recover">
+          <form id="frecover" action="/recover" method="post">
+          <table class="c">
+            <td>Email:</td><td><input type="text" class="input" name="recemail" /></td><td class="hspace"/><td><input type="submit" value="Recover" id="recbutton"/></td></tr>
+          </table>
+          </form>
+          <div class="c s">Note: your user ID and password will be emailed to you in plain text.</div>
+        </div>
+        <div id="admin">
+          <form id="fadmin" action="/admin" method="post">
+          <table class="c">
+            <td>Admin Password:</td><td><input type="password" class="input" name="adminpass" /></td><td class="hspace"/><td><input type="submit" value="Login" id="adminbutton"/></td></tr>
+          </table>
+          </form>
+        </div>
+      </div>
+      <div id="footer">
+        TransCenter is written by <a href="http://www.cs.cmu.edu/~mdenkows/" target="_blank">Michael Denkowski</a> and distributed under the <a href="http://www.gnu.org/licenses/lgpl.html" target="_blank">GNU LGPL</a>.  Source code is available on <a href="https://github.com/mjdenkowski/transcenter-live" target="_blank">github</a>.
+      </div>
+    </div>
+  </body>
+</html>

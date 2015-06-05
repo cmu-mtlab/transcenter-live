@@ -1,0 +1,107 @@
+body {
+   background: #c0c0c0;
+}
+
+a {
+   color: #0000ff;
+   text-decoration: none;
+}
+
+a:hover {
+   text-decoration: underline;
+}
+
+.input {
+   width: 100px;
+   border-style: solid;
+   border-width: 1px;
+   border-color: #999999;
+}
+
+.hspace {
+   padding-left:10px;
+   padding-right:10px;
+}
+
+.invis {
+   margin-left: auto;
+   margin-right: auto;
+}
+
+#alogin, #aregister, #arecover, #aadmin, #ahelp {
+   font-weight: bold;
+}
+
+#newbutton, #loginbutton, #recbutton, #adminbutton {
+   width: 72px;
+}
+
+#page {
+  width: 796px;
+  height: 300px;
+  padding: 6px;
+  margin: auto;
+  color: #000000;
+  background: #ffffff;
+  box-shadow: 0 0 8px 5px rgba(0,0,0,0.2);
+}
+
+#title {
+  padding: 3px;
+  text-align: center;
+  font-family: sans-serif;
+  font-variant: small-caps;
+  font-size: 32pt;
+}
+
+#subtitle {
+  padding: 3px;
+  text-align: center;
+  font-family: sans-serif;
+  font-variant: small-caps;
+  font-size: 16pt;
+}
+
+#footer {
+  margin-top: 120px;
+  font-family: sans-serif;
+  font-size: 10pt;
+  text-align: center;
+}
+
+#loginpane {
+  padding: 6px;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 12pt;
+}
+
+.c {
+   margin: auto;
+}
+
+.r {
+   text-align: right;
+}
+
+.s {
+   text-align: center;
+   font-size: 10pt;
+}
+
+#login, #register, #recover, #admin {
+  border: solid;
+  border-width: 1px;
+  border-color: #999999;
+  padding: 6px;
+  background: #dddddd;
+  margin-bottom: 12px;
+  text-align: left;
+  position: fixed;
+  width: 770px;
+
+}
+
+#login, #register, #recover, #admin {
+   visibility: hidden;
+}

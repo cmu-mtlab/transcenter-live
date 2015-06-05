@@ -1,0 +1,133 @@
+$def with (address)
+$code:
+  email_vars = 'var name = "{0}";var at = "{1}";var domain = "{2}"'.format(*address)
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>TransCenter Help</title>
+    <link rel="stylesheet" type="text/css" href="static/help.css" />
+  </head>
+
+  <body>
+    <div id="page">
+      <div id="title">
+        Getting Started
+      </div>
+      <div class="c">
+        <a class="bf padded" href="#overview">Task Overview</a>
+        <a class="bf padded" href="#editor">Translation Editor</a>
+        <a class="bf padded" href="#support">Help &amp; Support</a>
+      </div>
+
+      <a name="overview"></a>
+      <div class="header">Task Overview</div>
+      <p>
+        Thank you for working on a translation project with TransCenter!
+        This section describes the types of translation tasks you can complete using the web-based translation editor.
+      </p>
+      <p>
+        <span class="bf">Translation</span><br />
+        Translate source sentences into the target language.
+        Please rate each sentence according to how difficult it is to translate.
+        The ratings are based on your full experience as a translator and are not limited to the sentences in this task.
+        You should rate the difficulty of these sentences compared to all sentences you have ever translated for this language pair.
+        <ol>
+          <li value="5"><span class="bf">Easy</span>: This type of sentence is among the easiest to translate.</li>
+          <li value="4"><span class="bf">Less difficult</span>: This sentence is easier than average to translate.</li>
+          <li value="3"><span class="bf">Average</span>: This sentence represents the average amount of work required to translate for this language pair.</li>
+          <li value="2"><span class="bf">More difficult</span>: This sentence is harder than average to translate.</li>
+          <li value="1"><span class="bf">Hard</span>: This type of sentence is among the most difficult to translate.</li>
+        </ol>
+      </p>
+      <p>
+        <span class="bf">Bilingual Post-Editing</span><br />
+        Correct translations of source-language sentences.
+        Edit each translation to be fully grammatical and convey the information in the source sentence as closely as possible.
+        Try to minimize the number of edits used to correct each translation and avoid over-editing.
+        Even if a translation is very bad, please do your best to correct it instead of re-translating the source.
+        After editing, you are asked to rate the usefulness of each initial translation according to the following scale:
+        <ol>
+          <li value="5"><span class="bf">Very good</span>: Translation is perfect or almost perfect, requiring at most a few minor edits.</li>
+          <li value="4"><span class="bf">Usable</span>: Translation contains a few errors, but post-editing is definitely faster than re-translation.</li>
+          <li value="3"><span class="bf">Neutral</span>: Translation contains more errors.  It is difficult to say if it would be faster to post-edit or re-translate.</li>
+          <li value="2"><span class="bf">Non-usable</span>: Translation contains significant errors.  It would be faster to re-translation the source sentence.</li>
+          <li value="1"><span class="bf">Gibberish</span>: Translation is incomprehensible.</li>
+        </ol>
+      </p>
+      <p>
+        <span class="bf">Monolingual Post-Editing</span><br />
+        Correct translations using target-language references.
+        Edit each translation to be fully grammatical and convey exactly the same information as the reference translation.
+        Try to minimize the number of edits used to correct each translation and avoid over-editing.
+        A translation can be worded very differently from the reference and still convery the same meaning.
+        You are asked to rate the quality of each sentence after editing.
+        Ratings use the same scale as evaluation, described below.
+      </p>
+      <p>
+        <span class="bf">Evaluation</span><br />
+        Evaluate the quality of translations.
+        In this task, translations cannot be edited and you are asked to provide ratings only.
+        Please rate each translation according to the following scale:
+        <ol>
+          <li value="5"><span class="bf">Very good</span>: Translation is fully or almost fully grammatical and clearly conveys the same information as the reference translation.</li>
+          <li value="4"><span class="bf">More than half</span>: Translation has some minor errors but is still understandable and contains more than half of the information from the reference.</li>
+          <li value="3"><span class="bf">Half</span>: Translation has errors that distort the meaning and contains about half of the information in the reference.
+          You can also use this option if you can't decide whether the translation contains more or less than half of the information in the reference.</li>
+          <li value="2"><span class="bf">Less than half</span>: Translation has significant errors that make it difficult to understand.
+          Less than half of the meaning of the reference is conveyed.</li>
+          <li value="1"><span class="bf">Gibberish</span>: Translation is incomprehensible.
+          It may contain some of the same words as the reference, but the meaning is totally lost.</li>
+        </ol>
+      </p>
+
+      </p>
+      <a name="editor"></a>
+      <div class="header">Translation Editor</div>
+      <p>
+        Clicking on an available task loads the translation editor.
+        The top toolbar shows your user ID, the current task, and the pause, submit, and help buttons.
+        Sentences are displayed in a two column format, with source sentences on the left and translations on the right.
+      </p>
+      <div><img src="static/img/screen0.png" /></div>
+      <p>
+        In post-editing tasks, initial translations are pre-loaded and appear in gray.
+        In monolingual tasks, source sentences are replaced with target language references.
+        To begin, click the translation area for the first sentence and start editing.
+        The current sentence will be highlighted.
+        When you are finished editing, press enter or tab to continue, or manually select the rating area.
+        In evaluation-only tasks, the translations all appear black and cannot be edited.
+      </p>
+      <div><img src="static/img/screen1.png" /></div>
+      <p>
+        Completing a sentence activates the rating box.
+        Press 1-5 on your keyboard to rate the sentence you just edited, or use your mouse.
+        A red rating area indicates that the rating was skipped and still needs to be completed.
+      </p>
+      <div><img src="static/img/screen2.png" /></div>
+      <p>
+        Rating a sentence automatically selects the next sentence.
+        You can go back to the previous sentence by holding shift and pressing tab or enter.
+        You can also select any translation with the mouse.
+      </p>
+      <div><img src="static/img/screen3.png" /></div>
+      <p>
+        After you edit and rate all translations, you can use the Submit button to complete the task.
+        If you need to take a break from the editing task, use the Pause button.
+        To open this help page, click the Help (?) button.
+      </p>
+      <a name="support"></a>
+      <div class="header">Help &amp; Support</div>
+      <p>
+        If you need further help and support, please contact the translation project administrator.
+        To contact the administrator of this project, send email to
+          <script type="text/javascript">
+            $:email_vars
+            document.write('<a target="_blank" href="mailto:' + name + at + domain + '">' + name + at + domain + '</a>')
+          </script>.
+      </p>
+    </div>
+
+  </body>
+</html>
